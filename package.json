@@ -1,6 +1,6 @@
 {
   "name": "postcss-inherit-parser",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A parser for postcss-inherit's syntax",
   "main": "index.js",
   "scripts": {
@@ -27,7 +27,9 @@
   },
   "homepage": "https://github.com/GarthDB/postcss-inherit-parser#readme",
   "ava": {
-    "require": ["babel-register"],
+    "require": [
+      "babel-register"
+    ],
     "babel": "inherit"
   },
   "nyc": {
