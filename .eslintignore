@@ -1,0 +1,8 @@
+# Logs
+logs
+docs.json
+*.log
+npm-debug.log*
+.DS_Store
+/bin
+inch.json
