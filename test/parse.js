@@ -2,7 +2,7 @@
 import cases from 'postcss-parser-tests';
 import test from 'ava';
 
-import parse from '../lib/inherit-parse';
+import parse from '../src/inherit-parse';
 
 cases.each((name, css, json) => {
   test(`parses  ${name}`, t => {
