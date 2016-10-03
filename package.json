@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "ava": "^0.16.0",
-    "codeclimate-test-reporter": "^0.3.3",
+    "codeclimate-test-reporter": "^0.4.0",
     "eslint": "^3.2.2",
     "eslint-config-airbnb": "^10.0.0",
     "eslint-plugin-chai-expect": "^1.1.1",
