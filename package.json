@@ -64,6 +64,6 @@
     "nyc": "^7.1.0",
     "postcss-merge-rules": "^2.0.10",
     "postcss-merge-selectors": "0.0.6",
-    "postcss-parser-tests": "^5.0.9"
+    "postcss-parser-tests": "^5.0.11"
   }
 }
