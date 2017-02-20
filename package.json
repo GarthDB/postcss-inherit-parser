@@ -62,7 +62,7 @@
     "eslint-plugin-jsx-a11y": "^2.1.0",
     "eslint-plugin-react": "^6.0.0",
     "nyc": "^7.1.0",
-    "postcss-merge-rules": "^2.0.10",
+    "postcss-merge-rules": "^2.1.2",
     "postcss-merge-selectors": "0.0.6",
     "postcss-parser-tests": "^5.0.9"
   }
