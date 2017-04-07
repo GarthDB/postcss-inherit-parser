@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "babel-cli": "^6.9.0",
-    "babel-core": "^6.9.1",
+    "babel-core": "^6.24.1",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-istanbul": "^2.0.0",
     "babel-plugin-precompile-charcodes": "^1.0.0",
