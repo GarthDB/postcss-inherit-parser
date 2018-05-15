@@ -1,5 +1,5 @@
 import Parser from 'postcss/lib/parser';
-import tokenize from 'postcss/lib/tokenize';
+import tokenizer from 'postcss/lib/tokenize';
 import Declaration from 'postcss/lib/declaration';
 import inheritPropertySyntax from './inherit-property-syntax';
 
@@ -34,10 +34,12 @@ export default class InheritParser extends Parser {
    *
    *  Used as part of the postcss parser
    *
-   *     parser.tokenize();
+   *     parser.createTokenizer();
    */
-  tokenize() {
-    this.tokens = tokenize(this.input);
+  createTokenizer() {
+    this.tokenizer = tokenizer(this.input, {
+      ignoreErrors: true,
+    });
   }
   /**
    *  Public: overrides default parser `decl` method; parses tokenized css declarations
@@ -62,15 +64,24 @@ export default class InheritParser extends Parser {
       tokens.pop();
     }
     if (last[4]) {
-      node.source.end = { line: last[4], column: last[5] };
+      node.source.end = {
+        line: last[4],
+        column: last[5],
+      };
     } else {
-      node.source.end = { line: last[2], column: last[3] };
+      node.source.end = {
+        line: last[2],
+        column: last[3],
+      };
     }
 
     while (tokens[0][0] !== 'word') {
       node.raws.before += tokens.shift()[1];
     }
-    node.source.start = { line: tokens[0][2], column: tokens[0][3] };
+    node.source.start = {
+      line: tokens[0][2],
+      column: tokens[0][3],
+    };
 
     node.prop = '';
     while (tokens.length) {
@@ -99,18 +110,18 @@ export default class InheritParser extends Parser {
       node.raws.before += node.prop[0];
       node.prop = node.prop.slice(1);
     }
-    node.raws.between += this.spacesFromStart(tokens);
+    node.raws.between += this.spacesAndCommentsFromStart(tokens);
     this.precheckMissedSemicolon(tokens);
 
     for (let i = tokens.length - 1; i > 0; i--) {
       token = tokens[i];
-      if (token[1] === '!important') {
+      if (token[1].toLowerCase() === '!important') {
         node.important = true;
         let string = this.stringFrom(tokens, i);
         string = this.spacesFromEnd(tokens) + string;
         if (string !== ' !important') node.raws.important = string;
         break;
-      } else if (token[1] === 'important') {
+      } else if (token[1].toLowerCase() === 'important') {
         const cache = tokens.slice(0);
         let str = '';
         for (let j = i; j > 0; j--) {

@@ -22,8 +22,7 @@ export default function inheritParse(css, opts) {
   const input = new Input(css, opts);
 
   const parser = new InheritParser(input, opts);
-  parser.tokenize();
-  parser.loop();
+  parser.parse();
 
   return parser.root;
 }

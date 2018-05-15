@@ -1,9 +1,5 @@
 {
   "extends": "airbnb",
-  "ecmaFeatures": {
-    "jsx": true,
-    "modules": true,
-  },
   "env": {
     "browser": true,
     "node": true,
@@ -15,6 +11,7 @@
       "props": false
     }],
     "react/require-extension": 0,
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }]
   },
   "plugins": [
     "import",
